@@ -39,7 +39,9 @@ function draw(){
 	var overB = proxB < diam/2; //this is a boolean expression
 
 	if (overR && overB && overG){ // if over all of the three circles
-		fill (0,100);
+		fill (0,100); // set fill to black
+
+		// draw all the circles
 		ellipse(xR, yR, diam, diam);
 		ellipse(xG, yG, diam, diam);
 		ellipse(xB, yB, diam, diam);
