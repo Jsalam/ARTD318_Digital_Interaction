@@ -70,12 +70,10 @@ function drawRectangle(){
   		text(colorValues, mouseX-25, mouseY);
   		// Over color
 		fill(250,0,0,100);
-
 	} else {
 		// NO over color
 		fill(red, green, blue);
 	}
-
 	// Draw rectangle
   	rect (orgX, orgY,w,h);
 }
