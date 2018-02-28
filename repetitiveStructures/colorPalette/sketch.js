@@ -23,64 +23,78 @@ function setup(){
 
 function draw(){
 	background(230);
-		// Defining origin
+
+	// Reset origin of columns
+	orgY = 50;
+
+	// Resetting color values
+	grey = 0;
+	red = 0;
+	green = 0;
+	blue = 150;
+
+	// Reset counter of repetitive structure
+	var counterY = 0
+
+	while(counterY < 10){
+		
+		// Reset origin of rows
 		orgX = 50;
-		orgY = 50;
 
-		var counterY = 0
+		// Reset counter of repetitive structure
+		var counterX = 0 ;
 
-		grey = 0;
-		red = 0;
-		green = 0;
-		blue = 150;
-
-		while(counterY < 10){	
-			counterY = counterY + 1;
-			counterX = 0 ;
-			orgX = 50;
-
-			while(counterX < 10){
-
-				counterX = counterX + 1;
-				drawRectangle();
-
-				// increase X
-				orgX = orgX + 30;
-			}
-
-			grey = grey + 25;
-			red = red + 5;
-			green = green + 25;
-
-			// increase Y
-			orgY = orgY + 30;
+		while(counterX < 10){
+			// Draw rectangle with current coordinates orgX, orgY
+			drawRectangle();
+			// Increase X coordinate for each rectangle
+			orgX = orgX + 30;
+			// Increase counterY
+			counterX = counterX + 1;
 		}
-	}
 
-	function drawRectangle(){
+		// Increase Y coordinate for each rectangle
+		orgY = orgY + 30;
+		// Increase counterY
+		counterY = counterY + 1;
+		// Modify colors
+		grey = grey + 25;
+		red = red + 5;
+		green = green + 25;
+	}
+}
+
+
+function drawRectangle(){
+
+	var isOver = false;
 
   	// Evaluate mouse Over
   	var overX = mouseX > orgX && mouseX < orgX + w;
   	var overY = mouseY > orgY && mouseY < orgY + h;
 
+	// Determine if the mouse is over the rectangle
   	if ( overX && overY ){
-		// Over color
-		fill(250,0,0);
-
-		var colorValues = red + "," + green + "," + blue;
-
-		text(colorValues, mouseX, mouseY);
+		isOver = true;
 
 	} else {
+		isOver = false;
+	}
+
+  	if (isOver == true){
+  		var colorValues = red + "," + green + "," + blue;
+  		fill(80);
+  		text(colorValues, mouseX-25, mouseY);
+  		// Over color
+		fill(250,0,0,100);
+  	} else {
 		// NO over color
-		//fill(grey,transparency);
 		fill(red, green, blue);
 	}
 
-  	// Draw rectangle
+	  	// Draw rectangle
   	rect (orgX, orgY,w,h);
-
-  }
+}
 
 
 
