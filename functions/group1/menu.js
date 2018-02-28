@@ -1,16 +1,3 @@
-
-
-function setup(){
-	createCanvas(400,400);
-
-}
-
-function draw(){
-	background(240);
-	menu();
-
-}
-
 function menu(){
 
 	drawRectangle(10,10);
@@ -32,16 +19,7 @@ function drawRectangle(orgX, orgY){
 	// Determine if the mouse is over the rectangle
   	if ( overX && overY ){
   		// Over color
-				
-		if (mouseIsPressed){
-			fill(250,150,0,100);
-			w = 150;
-			orgX = mouseX;
-
-		} else {
-			fill(250,0,0,100);
-		}
-
+		fill(250,0,0,100);
 	} else {
 		// NO over color
 		fill(250,0,0,10);
@@ -49,3 +27,5 @@ function drawRectangle(orgX, orgY){
 	// Draw rectangle
   	rect (orgX, orgY,w,h);
 }
+
+
