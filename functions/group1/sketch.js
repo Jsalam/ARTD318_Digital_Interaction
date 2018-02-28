@@ -1,8 +1,5 @@
 
-var orgX;
-var orgY;
-var w;
-var h;
+
 
 function setup(){
 	createCanvas(400,400);
@@ -11,16 +8,17 @@ function setup(){
 
 function draw(){
 	background(240);
-	orgX = 10;
-	orgY = 10;
-	w= 300;
-	h = 150;
-	drawRectangle();
+
+	drawRectangle(10,10);
+
+	drawRectangle(20,120);
 
 }
 
 
-function drawRectangle(){
+function drawRectangle(orgX, orgY){
+	w = 300;
+	h = 150;
 
   	// Evaluate mouse Over
   	var overX = mouseX > orgX && mouseX < orgX + w;
