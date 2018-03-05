@@ -43,7 +43,7 @@ function face(orgX, orgY, diam){
 	if (proximity <= diam/2){
 		fill(250,125,0,100)
 	} else{
-		fill(250, 100);
+		fill(250, 100); 
 	}
 
 	// Face outline
