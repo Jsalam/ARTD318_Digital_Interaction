@@ -21,7 +21,7 @@ var phoneInstance = function(p5js){
 		phone1.setup();
 
 		myStatusBar = new statusBar(8);
-		myToolBar = new toolBar("INBOX", p5js);
+		myToolBar = new toolBar("CONTACTS", p5js);
 		myBoxTitle = new boxedTitle('My files', p5.LEFT);
 		myBoxTitleB = new boxedTitle('Folders', p5.LEFT);
 		myBoxTitleC = new boxedTitle('Files', p5.LEFT);
