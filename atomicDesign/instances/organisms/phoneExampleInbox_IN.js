@@ -18,7 +18,7 @@ var phoneInstance = function(p5js){
 
 		myStatusBar = new statusBar(8);
 		myToolBar = new toolBar("INBOX", p5js);
-		myBoxTitle = new boxedTitle('Today', p5.LEFT);
+		myBoxTitle = new boxedTitle('Today', p5js.LEFT);
 		myItemListA = new list(9, p5js)
 		myItemListB = new list(5, p5js)
 		myAndroidBar = new androidBar();

@@ -22,9 +22,6 @@ var phoneInstance = function(p5js){
 
 		myStatusBar = new statusBar(8);
 		myToolBar = new toolBar("CONTACTS", p5js);
-		myBoxTitle = new boxedTitle('My files', p5.LEFT);
-		myBoxTitleB = new boxedTitle('Folders', p5.LEFT);
-		myBoxTitleC = new boxedTitle('Files', p5.LEFT);
 		myItemListA = new list(2, p5js)
 		mySpacer = new contentSpacer(8);
 		myItemListB = new list(4, p5js)

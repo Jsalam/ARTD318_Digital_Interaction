@@ -60,11 +60,11 @@
 	<script src="instances/molecules/list_IN.js"></script>
 	<script src="instances/molecules/gridList_IN.js"></script>
 	<script src="instances/molecules/toolBar_IN.js"></script>
-	<!-- Organisms Isntances -->
+	<!-- Organisms Instances -->
 	<script src="iPhoneX.js"></script>
 	<script src="instances/organisms/phoneExampleInbox_IN.js"></script>
-	<script src="instances/organisms/phoneExampleFiles_IN.js"></script>
-	<script src="instances/organisms/phoneExampleDirectory_IN.js"></script>
+	<script src="instances/organisms/phoneExampleFiles_IN.js"></script> 
+	<script src="instances/organisms/phoneExampleDirectory_IN.js"></script> 
 
 
 </head>
@@ -90,84 +90,74 @@
 					<p>All the elements in this example are available at <a href="https://github.com/Jsalam/ARTD318_Digital_Interaction/tree/master/atomicDesign"> github</a></p>
 
 					<!-- ATOMS -->
-					<h2 id="atoms">Atoms</h2>
-					<p> The fundamental atomic elements of this example are interactive rectangles and circles. These elements react to the mouse proximity and change color whenever the mouse is on top of them.</p>
+					<h2 id="atoms">Atoms - Buttons</h2>
+					<p> The fundamental atomic elements of this example are interactive rectangles and circles. Some of these elements react to the mouse proximity and change color whenever the mouse is on top of them.</p>
+
+					<p> <a href="https://material.io/guidelines/components/buttons.html#">Button</a> is the material design reference for these atoms</p>
 
 					<!-- Rectangle -->
 					<h3 id="rectangle">Raised Button</h3>
-
-					<p> The material design reference for this atom is the <a href="https://material.io/guidelines/components/buttons.html#">button</a></p>
-					<div id="rectButton"></div> <br>
+					<div id="rectButton"></div>
 
 					<!-- Circle -->
 					<h3 id="circle">Circlular Button</h3>
-					<p> The material design reference for this atom is the <a href="https://material.io/guidelines/components/buttons.html#">button</a></p>
-					<div id="circularButton"></div> <br>
+					<div id="circularButton"></div>
 
 					<!-- drawer button -->
 					<h3 id="drawer">Drawer Button</h3>
-					<p> The material design reference for this atom is the <a href="https://material.io/guidelines/components/buttons.html#">button</a></p>
-					<div id="drawerButton"></div> <br>
+					<div id="drawerButton"></div>
 
 					<!-- magnifiying glass -->
 					<h3 id="mGlass">Search</h3>
-					<p> The material design reference for this atom is the <a href="https://material.io/guidelines/components/buttons.html#">button</a></p>
-					<div id="magnifyinGlass"></div> <br>
-
+					<div id="magnifyinGlass"></div>
 
 					<!-- Flat button -->
 					<h3 id="title">Title</h3>
-					<p> The material design reference for this atom is the <a href="https://material.io/guidelines/components/buttons.html#">button</a></p>
-					<div id="titleInstance"></div> <br>
+					<div id="titleInstance"></div><br>
 
 					<!-- Spacers -->
-					<h3 id="spacers">Spacers</h3>
-					<p> The material design reference for this atom is the <a href="https://material.io/guidelines/layout/metrics-keylines.html#">metrics and keylines</a></p>
-					<div id="contentSpacer"></div> <br>
+					<h2 id="spacers">Atom - Spacers and bars</h2>
+					<p> <a href="https://material.io/guidelines/layout/metrics-keylines.html#">Metrics and keylines</a> and <a href="https://material.io/guidelines/layout/structure.html#structure-system-bars">layout - structure</a> are the material design references for these atoms</p>
+					<div id="contentSpacer"></div>
 
 					<h3 id="status">Status Bar</h3>
-					<p> The material design reference for this atom is the <a href="https://material.io/guidelines/layout/metrics-keylines.html#">metrics and keylines</a></p>
-					<div id="statusBar"></div> <br>
+					<div id="statusBar"></div>
 
 					<h3 id="android">Andriod Navigation Bar</h3>
-					<p> The material design reference for this atom is the navigation bar at <a href="https://material.io/guidelines/layout/structure.html#structure-system-bars">layout - structure</a></p>
 					<div id="androidBar"></div> <br>
 
 					<!-- MOLECULES -->
 					<h2 id="molecules">Molecules</h2>
+					<p>Molecules are functional structures composed by atoms creating a visual system that reseambles an interaction pattern.</p> 
+					<p><a href="https://material.io/guidelines/components/lists.html#">List</a>, <a href="https://material.io/guidelines/components/grid-lists.html#grid-lists-usage">grid list</a>, and <a href="https://material.io/guidelines/layout/metrics-keylines.html#">metrics and keylines</a> are the material design references for these molecules.</p>
 
 					<!-- Item list -->
 					<h3 id="itemList">Lists</h3>
-					<p>A list is a repetition of raised buttons. It could be headed by a title. The material design reference for this molecule is <a href="https://material.io/guidelines/components/lists.html#">list</a></p>
-					<div id="buttonList"></div> <br>
+					<div id="buttonList"></div>
 
 					<!-- Grid List -->
 					<h3 id="gridList">Grid lists</h3>
-					<p>A grid list is a matrix of circle atoms. The material design reference for this molecule is <a href="https://material.io/guidelines/components/grid-lists.html#grid-lists-usage">grid list</a></p>
-					<div id="c6"></div> <br>
+					<div id="c6"></div>
 
 					<!-- Tool Bar -->
 					<h3 id="tbar">Tool Bar</h3>
-					<p> The material design reference for this molecule is <a href="https://material.io/guidelines/layout/metrics-keylines.html#">metrics and keylines</a></p>
 					<div id="toolBar"></div> <br>
 
 					<!-- ORGANISMS -->
 					<h2 id="organisms">Organisms</h2>
+					<p> Organisms consist of atoms and molecules. The material design reference for these organisms is <a href="https://material.io/guidelines/layout/metrics-keylines.html#">metrics and keylines</a>. </p>
 
 					<!-- Cell Phone -->
 					<h3 id="cellPhone1">Inbox Phone Screen </h3>
-					<p> The material design reference for this organism is the <a href="https://material.io/guidelines/layout/metrics-keylines.html#">metrics and keylines</a>. It is composed of spacer atoms and list molecules.</p>
-					<div id="phoneExampleInbox"></div> <br>
+					<div id="phoneExampleInbox"></div>
 
 					<!-- Cell Phone -->
 					<h3 id="cellPhone2">Files Phone Screen </h3>
-					<p> The material design reference for this organism is the <a href="https://material.io/guidelines/layout/metrics-keylines.html#">metrics and keylines</a>. It is composed of spacer atoms and list molecules.</p>
-					<div id="phoneExampleFiles"></div> <br>
+					<div id="phoneExampleFiles"></div>
 
 					<!-- Cell Phone -->
 					<h3 id="cellPhone3">Directory Screen </h3>
-					<p> The material design reference for this organism is the <a href="https://material.io/guidelines/layout/metrics-keylines.html#">metrics and keylines</a>. It is composed of spacer atoms and list molecules.</p>
-					<div id="phoneExampleDirectory"></div> <br>
+					<div id="phoneExampleDirectory"></div>
 
 				</article>
 			</main>

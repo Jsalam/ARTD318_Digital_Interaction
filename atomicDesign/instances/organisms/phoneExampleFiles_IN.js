@@ -21,9 +21,9 @@ var phoneInstance = function(p5js){
 
 		myStatusBar = new statusBar(8);
 		myToolBar = new toolBar("SIM CARD 1", p5js);
-		myBoxTitle = new boxedTitle('My files', p5.LEFT);
-		myBoxTitleB = new boxedTitle('Folders', p5.LEFT);
-		myBoxTitleC = new boxedTitle('Files', p5.LEFT);
+		myBoxTitle = new boxedTitle('My files', p5js.LEFT);
+		myBoxTitleB = new boxedTitle('Folders', p5js.LEFT);
+		myBoxTitleC = new boxedTitle('Files', p5js.LEFT);
 		myItemListA = new list(3, p5js)
 		mySpacer = new contentSpacer(8);
 		myItemListB = new list(4, p5js)
