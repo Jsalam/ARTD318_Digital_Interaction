@@ -7,14 +7,18 @@ var started = false;
 var finished = false;
 var sequence;
 
+var grid;
+
 // GUI
 var editingButton;
 var startButton;
+var gridModule;
 
 	p5.setup = function(){
+		makeGUI();
 		p5.createCanvas(960,500);
 
-		makeGUI();
+		
 		timeStart = 0;
 		myShapes = [];
 		sequence = 1;
@@ -34,19 +38,20 @@ var startButton;
 			myShapes[i].posYSlider.mouseMoved(posYSlider);	
 			myShapes[i].sizeSlider.mouseMoved(sizeSlider);		
 		}
-		
-
-		
-		editingButton.mouseReleased(switcheditingButtons);
-		startButton.mouseReleased(reset);
 
 		p5.rectMode(p5.CENTER);
 		p5.textAlign(p5.CENTER,p5.CENTER);
+
+		grid = new myGrid(p5);
 
 	}
 
 	p5.draw = function(){
 		p5.background(240);
+
+		if (myShapes[0].editing){
+			grid.show(gridModule.value());
+		}
 
 		// Start counter
 		if (started && !finished){
@@ -93,6 +98,11 @@ var startButton;
 	var makeGUI = function(){
 		editingButton = p5.createButton("Switch editing mode");
 		startButton = p5.createButton("Reset timer and sequence");
+		gridModule = p5.createSlider(0,300,10);
+
+
+		editingButton.mouseReleased(switcheditingButtons);
+		startButton.mouseReleased(reset);
 	}
 
 	var switcheditingButtons = function (){
@@ -103,11 +113,13 @@ var startButton;
 				myShapes[i].posXSlider.hide();
 				myShapes[i].posYSlider.hide();
 				myShapes[i].sizeSlider.hide();
+				gridModule.hide();
 			}	else{
 				myShapes[i].shapeButton.show();
 				myShapes[i].posXSlider.show();
 				myShapes[i].posYSlider.show();
 				myShapes[i].sizeSlider.show();
+				gridModule.show();
 			}	
 		}
 		reset();
