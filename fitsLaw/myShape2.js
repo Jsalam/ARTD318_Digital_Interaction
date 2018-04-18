@@ -1,9 +1,9 @@
-function myShape(p5, kind, posX, posY, width, seq){
+function myShape2(p5, kind, posX, posY, width, seq){
 	this.kind = kind;
-	this.posX = posX;
-	this.posY = posY;
-	this.module = 10;
-	this.width =  2;
+	this.posX = 2;
+	this.posY = 2;
+	this.module = p5.width / width;
+	this.width =  width;
 	this.seq = seq;
 	this.wasClicked = false;
 	// edition mode
@@ -13,13 +13,17 @@ function myShape(p5, kind, posX, posY, width, seq){
 	this.posXSlider
 	this.posYSlider
 	this.sizeSlider
+	// Adaptive
+	this.uPosX ;
+	this.uPosY;
+	this.uHalfW; 
 
 
 	this.makeGUI = function(){
 		myGUIs = [];
 		this.shapeButton = p5.createButton('Switch Shape of ' + this.seq);
-		this.posXSlider = p5.createSlider(0, p5.width, 50);
-		this.posYSlider = p5.createSlider(0, p5.height, 50);
+		this.posXSlider = p5.createSlider(0, this.module, 2, 1);
+		this.posYSlider = p5.createSlider(0, this.module, 2, 1);
 		this.sizeSlider = p5.createSlider(1, 10, 2, 1);
 		this.shapeButton.id(seq);
 		this.posXSlider.id(seq);
@@ -34,6 +38,10 @@ function myShape(p5, kind, posX, posY, width, seq){
 
 	this.show = function(){
 
+		this.uPosX = this.posX * this.module;
+		this.uPosY = this.posY * this.module;
+		this.uHalfW = (this.width * this.module)/2;
+
 		p5.fill(250, 100);
 
 		if (this.wasClicked){
@@ -42,21 +50,21 @@ function myShape(p5, kind, posX, posY, width, seq){
 
 		if (this.editing){
 			p5.stroke(0,120);
-			p5.line(this.posX, this.posY - ((this.width * this.module)/2), this.posX, this.posY +((this.width * this.module)/2));
-			p5.line(this.posX - ((this.width * this.module)/2), this.posY, this.posX +((this.width * this.module)/2), this.posY);
+			p5.line(this.uPosX, this.uPosY - this.uHalfW, this.uPosX, this.uPosY + this.uHalfW);
+			p5.line(this.uPosX - this.uHalfW, this.uPosY, this.uPosX + this.uHalfW, this.uPosY);
 		} else{
 			p5.stroke(0,50);
 		}
 
 		if (this.kind == 'rect'){
 
-			// show rectangle
-			p5.rect(this.posX, this.posY, this.width * this.module, this.width * this.module);
+		 	// show rectangle
+		 	p5.rect(this.uPosX, this.uPosY, this.width * this.module, this.width * this.module);
 			
 		}else if (this.kind == 'ellipse'){
 
-			// show ellipse
-			p5.ellipse(this.posX, this.posY, this.width * this.module);
+		 	// show ellipse
+			p5.ellipse(this.uPosX, this.uPosY, this.width * this.module);
 
 		}
 
@@ -65,22 +73,21 @@ function myShape(p5, kind, posX, posY, width, seq){
 		p5.noStroke();
 		if (this.editing){
 			p5.fill(150,0,0);
-			p5.text(this.seq + ' x:' + this.posX +',y:' +this.posY + ',z:'+this.width, this.posX, this.posY);
+			p5.text(this.seq + '   x:' + p5.nf(this.uPosX,2,1) +',y:' + p5.nf(this.uPosY,2,1) + ',z:'+ p5.nf(this.width,2,1), this.uPosX, this.uPosY);
 		} else{
 			p5.fill(50);
-			p5.text(this.seq, this.posX, this.posY);
+			p5.text(this.seq, this.uPosX, this.uPosY);
 		}
 	}
 
 	// This function detects when the user clicks on top of this shape
 	this.detectClick = function (index){
 
-					this.half = ((this.width * this.module)/2);
-					this.left = this.posX - this.half;
-					this.right = this.posX + this.half;
+					this.left = this.uPosX - this.uHalfW;
+					this.right = this.uPosX + this.uHalfW;
 
-					this.top = this.posY - this.half;
-					this.bottom = this.posY + this.half;
+					this.top = this.uPosY - this.uHalfW;
+					this.bottom = this.uPosY + this.uHalfW;
 
 		if (!this.editing){
 			if (index == this.seq){
@@ -102,7 +109,7 @@ function myShape(p5, kind, posX, posY, width, seq){
 				}else if (this.kind == 'ellipse'){
 
 					// evaluate proximity
-					if (p5.dist(p5.mouseX, p5.mouseY, this.posX, this.posY) < (this.width * this.module)/2){
+					if (p5.dist(p5.mouseX, p5.mouseY, this.uPosX, this.uPosY) < this.uHalfW){
 						if (p5.mouseIsPressed){
 							this.wasClicked = true;
 						}				
@@ -160,5 +167,15 @@ function myShape(p5, kind, posX, posY, width, seq){
 
 	this.updateSizeSlider = function(val){
 	 	this.sizeSlider.elt.max = val;
+	 		 	this.posXSlider.elt.max = val;
+	 		 		 	this.posYSlider.elt.max = val;
+	}
+
+	this.updatePosXSlider = function(val){
+	 	this.posXSlider.elt.max = val;
+	}
+
+	this.updatePosYSlider = function(val){
+	 	this.posYSlider.elt.max = val;
 	}
 }

@@ -24,7 +24,7 @@ var gridModule;
 		sequence = 1;
 
 		for (var i=0; i< 5; i++){
-			myShapes.push(new myShape(p5, 'rect', 50, 50, 50, i + 1));
+			myShapes.push(new myShape2(p5, 'rect', 50, 50, gridModule.value(), i + 1));
 		}
 		// Initiate GUI
 
@@ -49,9 +49,15 @@ var gridModule;
 	p5.draw = function(){
 		p5.background(240);
 
+		p5.textAlign(p5.LEFT,p5.CENTER);
+
 		if (myShapes[0].editing){
 			grid.show(gridModule.value());
+			p5.text('Columns: ' + gridModule.value(), 40,10);
+			var nfColWidth = p5.nf((p5.width / gridModule.value()),2,1);
+			p5.text('Column size: ' + nfColWidth, 120,10);
 		}
+		p5.textAlign(p5.CENTER,p5.CENTER);
 
 		// Start counter
 		if (started && !finished){
@@ -59,7 +65,7 @@ var gridModule;
 		}
 		// display time
 		if (started){
-			p5.text ('elapsed time: ' + p5.nf(millisecond, 2, 2), 80,20);
+			p5.text ('Elapsed time: ' + p5.nf(millisecond, 2, 2), 80,20);
 			//text ('sequence: ' + sequence, 80, 40);
 		}
 
@@ -97,12 +103,13 @@ var gridModule;
 
 	var makeGUI = function(){
 		editingButton = p5.createButton("Switch editing mode");
-		startButton = p5.createButton("Reset timer and sequence");
-		gridModule = p5.createSlider(0,300,10);
+		startButton = p5.createButton("Reset timer");
+		gridModule = p5.createSlider(2,42,2, 2);
 
 
 		editingButton.mouseReleased(switcheditingButtons);
 		startButton.mouseReleased(reset);
+		gridModule.mouseMoved(updateModule);
 	}
 
 	var switcheditingButtons = function (){
@@ -220,5 +227,11 @@ var gridModule;
 		}
 	}
 
+	var updateModule = function(){
+		for (var i=0; i< myShapes.length; i++){
+			myShapes[i].updateModule(p5.width / gridModule.value());
+			myShapes[i].updateSizeSlider(gridModule.value());
+		}
+	}	
 }
 var myP5 = new p5(instance, 'sketchInstance');
