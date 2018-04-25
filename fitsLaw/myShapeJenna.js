@@ -21,7 +21,7 @@ function myShape2(p5, kind, posX, posY, width, seq){
 
 	this.makeGUI = function(){
 		myGUIs = [];
-		this.shapeButton = p5.createButton('Switch Shape of ' + this.seq);
+		this.shapeButton = p5.createButton('Switch Color of ' + this.seq);
 		this.posXSlider = p5.createSlider(0, this.module, 2, 1);
 		this.posYSlider = p5.createSlider(0, this.module, 2, 1);
 		this.sizeSlider = p5.createSlider(1, 10, 2, 1);
@@ -58,15 +58,18 @@ function myShape2(p5, kind, posX, posY, width, seq){
 
 		if (this.kind == 'rect'){
 
+				p5.fill(0,200,0);
+
 		 	// show rectangle
-		 	p5.rect(this.uPosX, this.uPosY, this.width * this.module, this.width * this.module);
+		 	//p5.rect(this.uPosX, this.uPosY, this.width * this.module, this.width * this.module);
 			
 		}else if (this.kind == 'ellipse'){
 
 		 	// show ellipse
-			p5.ellipse(this.uPosX, this.uPosY, this.width * this.module);
+		p5.fill(200,0,0);
 
 		}
+			p5.ellipse(this.uPosX, this.uPosY, this.width * this.module);
 
 
 		// label
@@ -144,8 +147,8 @@ function myShape2(p5, kind, posX, posY, width, seq){
 
 	// This changes the X position of the shape 
 	this.setX = function(valX){
-		// if (this.editing)
-		// 	this.posX = valX;
+		if (this.editing)
+			this.posX = valX;
 	}
 
 	// This changes the Y position of the shape
@@ -166,16 +169,16 @@ function myShape2(p5, kind, posX, posY, width, seq){
 	}
 
 	this.updateSizeSlider = function(val){
-//	 	this.sizeSlider.elt.max = val;
-//	 		 	this.posXSlider.elt.max = val;
-//	 		 		 	this.posYSlider.elt.max = val;
+	 	this.sizeSlider.elt.max = val;
+	 		 	this.posXSlider.elt.max = val;
+	 		 		 	this.posYSlider.elt.max = val;
 	}
 
 	this.updatePosXSlider = function(val){
-//	 	this.posXSlider.elt.max = val;
+	 	this.posXSlider.elt.max = val;
 	}
 
 	this.updatePosYSlider = function(val){
-//	 	this.posYSlider.elt.max = val;
+	 	this.posYSlider.elt.max = val;
 	}
 }

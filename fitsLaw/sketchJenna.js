@@ -4,6 +4,8 @@ var millisecond;
 var timeStart;
 var myShapes;
 var numberShapes;
+var nColumns;
+var nRows;
 var started = false;
 var finished = false;
 var sequence;
@@ -23,16 +25,21 @@ var inputValue;
 
         
         timeStart = 0;
-        numberShapes = 5;
+        numberShapes = 0;
+        nColumns = 4;
+        nRows = 4;
         myShapes = [];
         sequence = 1;
 
-        for (var i=0; i< numberShapes; i++){
-            myShapes.push(new myShape2(p5, 'rect', 50, 50, gridModule.value(), i + 1));
+        for (var i=0; i< nRows; i++){
+            for (var j=0; j< nColumns; j++){
+                numberShapes  ++;
+                myShapes.push(new myShape2(p5, 'ellipse', (i* 70) + 50, (j*70) + 50, 50, numberShapes));
+            }
         }
-        // Initiate GUI
 
-        for (var i=0; i< myShapes.length; i++){
+        // Initiate GUI
+                for (var i=0; i< myShapes.length; i++){
             myShapes[i].makeGUI();      
         }
 
@@ -119,7 +126,7 @@ var inputValue;
 
         editingButton.mouseReleased(switcheditingButtons);
         startButton.mouseReleased(reset);
-        gridModule.mouseMoved(updateModule);
+        //gridModule.mouseMoved(updateModule);
         inputValue.input(myInputEvent);
     }
 
@@ -127,16 +134,16 @@ var inputValue;
         for (var i=0; i< myShapes.length; i++){
             myShapes[i].switchEditing();
             if (!myShapes[i].editing){
-                myShapes[i].shapeButton.hide();
-                myShapes[i].posXSlider.hide();
-                myShapes[i].posYSlider.hide();
-                myShapes[i].sizeSlider.hide();
+                // myShapes[i].shapeButton.hide();
+                // myShapes[i].posXSlider.hide();
+                // myShapes[i].posYSlider.hide();
+                // myShapes[i].sizeSlider.hide();
                 gridModule.hide();
             }   else{
-                myShapes[i].shapeButton.show();
-                myShapes[i].posXSlider.show();
-                myShapes[i].posYSlider.show();
-                myShapes[i].sizeSlider.show();
+                // myShapes[i].shapeButton.show();
+                // myShapes[i].posXSlider.show();
+                // myShapes[i].posYSlider.show();
+                // myShapes[i].sizeSlider.show();
                 gridModule.show();
             }   
         }
@@ -238,12 +245,6 @@ var inputValue;
         }
     }
 
-    var updateModule = function(){
-        for (var i=0; i< myShapes.length; i++){
-            myShapes[i].updateModule(p5.width / gridModule.value());
-            myShapes[i].updateSizeSlider(gridModule.value());
-        }
-    }
 
     p5.mouseReleased = function() {
         mouseEnabled = true;
