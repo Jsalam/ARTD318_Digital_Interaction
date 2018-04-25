@@ -23,7 +23,7 @@ var gridModule;
 		myShapes = [];
 		sequence = 1;
 
-		for (var i=0; i< 5; i++){
+		for (var i=0; i< 6; i++){
 			myShapes.push(new myShape2(p5, 'rect', 50, 50, gridModule.value(), i + 1));
 		}
 		// Initiate GUI
@@ -84,7 +84,7 @@ var gridModule;
 				if (timeStart == undefined)
 					timeStart = p5.millis();
 			}
-
+myShapes[i].detectClick(sequence);
 		}
 
 		// verify completion
@@ -143,88 +143,20 @@ var gridModule;
 		}
 	}
 
-	var switchShape = function(){	
-		switch((event.target).id){
-			case '1':
-			myShapes[0].switchShape();
-			break;
-			case '2':
-			myShapes[1].switchShape();
-			break;
-			case '3':
-			myShapes[2].switchShape();
-			break;
-			case '4':
-			myShapes[3].switchShape();
-			break;
-			case '5':
-			myShapes[4].switchShape();
-			break;
-
-		}
+	var switchShape = function(){
+		myShapes[(event.target).id - 1].switchShape();
 	}
 
 	var posXSlider = function(){
-		switch((event.target).id){
-			case '1':
-			myShapes[0].setX(+event.target.value);
-			break;
-			case '2':
-			myShapes[1].setX(+event.target.value);
-			break;
-			case '3':
-			myShapes[2].setX(+event.target.value);
-			break;
-			case '4':
-			myShapes[3].setX(+event.target.value);
-			break;
-			case '5':
-			myShapes[4].setX(+event.target.value);
-			break;
-
-		}
+			myShapes[(event.target).id - 1].setX(+event.target.value);
 	}
 
 	var posYSlider = function(){	
-		switch((event.target).id){
-			case '1':
-			myShapes[0].setY(+event.target.value);
-			break;
-			case '2':
-			myShapes[1].setY(+event.target.value);
-			break;
-			case '3':
-			myShapes[2].setY(+event.target.value);
-			break;
-			case '4':
-			myShapes[3].setY(+event.target.value);
-			break;
-			case '5':
-			myShapes[4].setY(+event.target.value);
-			break;
-
-		}
+			myShapes[(event.target).id - 1].setY(+event.target.value);
 	}
 
-	var sizeSlider = function(){	
-		switch((event.target).id){
-			case '1':
-			myShapes[0].setSize(+event.target.value);
-			break;
-			case '2':
-			myShapes[1].setSize(+event.target.value);
-			break;
-			case '3':
-			myShapes[2].setSize(+event.target.value);
-			break;
-			case '4':
-			myShapes[3].setSize(+event.target.value);
-			break;
-			case '5':
-			myShapes[4].setSize(+event.target.value);
-			break;
-
-		}
+	var sizeSlider = function(){
+			myShapes[(event.target).id - 1].setSize(+event.target.value);	
 	}
 
 	var updateModule = function(){
