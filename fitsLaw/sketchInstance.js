@@ -6,6 +6,7 @@ var myShapes;
 var started = false;
 var finished = false;
 var sequence;
+var mouseBusy = false;
 
 var grid;
 
@@ -18,12 +19,11 @@ var gridModule;
 		makeGUI();
 		p5.createCanvas(960,500);
 
-		
 		timeStart = 0;
 		myShapes = [];
 		sequence = 1;
 
-		for (var i=0; i< 6; i++){
+		for (var i=0; i< 5; i++){
 			myShapes.push(new myShape2(p5, 'rect', 50, 50, gridModule.value(), i + 1));
 		}
 		// Initiate GUI
@@ -75,16 +75,24 @@ var gridModule;
 		}
 
 		// Detect clicks
-		for (var i=0; i< myShapes.length ; i++){
-			if (myShapes[i].detectClick(sequence)){
-				sequence = myShapes[i].seq + 1;
+		if (!mouseBusy){
+			for (var i=0; i< myShapes.length ; i++){
+				if (myShapes[i].detectClick(sequence)){
+					sequence = myShapes[i].seq + 1;
+				}
+				if (sequence > 1){
+					started = true;
+					if (timeStart == undefined)
+						timeStart = p5.millis();
+				}
+				//myShapes[i].detectClick(sequence);
 			}
-			if (sequence > 1){
-				started = true;
-				if (timeStart == undefined)
-					timeStart = p5.millis();
-			}
-myShapes[i].detectClick(sequence);
+		}
+
+		if (p5.mouseIsPressed){
+			mouseBusy = true;
+		} else {
+			mouseBusy = false;
 		}
 
 		// verify completion
