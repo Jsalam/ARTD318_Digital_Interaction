@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<!-- This code is adapted from https://creative-coding.decontextualize.com/text-and-type/ -->
+<!-- Juan Salamanca 2018 -->
+
+<html>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+
+	<!-- Enable responsiveness on mobile devices-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+	<title>
+
+		GUI Development &middot; Based on Atomic Design
+
+	</title>
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="css/poole.css">
+
+	<script src="p5.js" type="text/javascript"></script>
+	<script src="p5.dom.js" type="text/javascript"></script>
+
+	<!-- Keylines -->
+	<script src="atomicDesignElements/atoms/keylines/vertKeylines.js"></script>
+	<script src="atomicDesignElements/atoms/keylines/hrzKeylines.js"></script>
+
+	<!-- Atoms -->
+	<script src="atomicDesignElements/atoms/bars/androidNavBar.js"></script>
+	<script src="atomicDesignElements/atoms/buttons/circleButton.js"></script>
+	<script src="atomicDesignElements/atoms/buttons/drawerButton.js"></script>
+	<script src="atomicDesignElements/atoms/labels/label.js"></script>
+	<script src="atomicDesignElements/atoms/buttons/magnifyingGlass.js"></script>
+	<script src="atomicDesignElements/atoms/pics/picture.js"></script>
+	<script src="atomicDesignElements/atoms/buttons/rectButton.js"></script>
+	<script src="atomicDesignElements/atoms/spacers/contentSpacer.js"></script>
+	<script src="atomicDesignElements/atoms/bars/statusBar.js"></script>
+	<script src="atomicDesignElements/atoms/labels/boxedTitle.js"></script>
+
+	<!-- Molecules -->
+	<script src="atomicDesignElements/molecules/list.js"></script>
+	<script src="atomicDesignElements/molecules/gridList.js"></script>
+	<script src="atomicDesignElements/molecules/toolBar.js"></script>
+
+	<!-- INSTANCES -->
+	<!-- Atom Instances -->
+	<script src="instances/atoms/androidBar_IN.js"></script>
+	<script src="instances/atoms/circleButton_IN.js"></script>
+	<script src="instances/atoms/drawerButton_IN.js"></script>
+	<script src="instances/atoms/magnifyingGlass_IN.js"></script>
+	<script src="instances/atoms/rectButton_IN.js"></script>
+	<script src="instances/atoms/spacer_IN.js"></script>
+	<script src="instances/atoms/statusBar_IN.js"></script>
+	<script src="instances/atoms/title_IN.js"></script>
+	<!-- Molecule Instances -->
+	<script src="instances/molecules/list_IN.js"></script>
+	<script src="instances/molecules/gridList_IN.js"></script>
+	<script src="instances/molecules/toolBar_IN.js"></script>
+	<!-- Organisms Instances -->
+	<script src="iPhoneX.js"></script>
+	<script src="instances/organisms/phoneExampleInbox_IN.js"></script>
+	<script src="instances/organisms/phoneExampleFiles_IN.js"></script>
+	<script src="instances/organisms/phoneExampleDirectory_IN.js"></script>
+
+
+</head>
+
+
+<body>
+
+	<div class="container content">
+		<main>
+			<article class="page">
+				<p> ARTD 318. Digital Interaction &middot;  Graphic Design&middot; UIUC</p>
+				<p> Juan Salamanca 2018 </p>
+
+				<h1 class="page-title">GUI System Prototyping with P5.js and JavaScript</h1>
+
+				<p> This page presents an example of an interactive system built with P5.js developed with the atomic design framework.</p>
+
+				<p>
+					<a href="http://bradfrost.com/blog/post/atomic-web-design">Atomic Design</a> is simple conceptual framework developed by Brad Frost that argues for the construction of complex  interactive systems from simple GUI building blocks. The framework is a metaphore derived from chemistry and biology. The idea is that molecules are constituted by atoms, sets of molecules form organisms, and collections of organisms result in templates that are used to build interactive systems.</p>
+
+					<p> In the construction of this example we follow the principles of <a href="https://material.io/guidelines/">Material Design</a>. All its <a href="https://material.io/guidelines/components/bottom-navigation.html">components</a> could be interpreted as <a href="http://bradfrost.com/blog/post/atomic-web-design/#atoms">atoms</a> or <a href="http://bradfrost.com/blog/post/atomic-web-design/#molecules">molecules</a>.</p>
+
+					<p>All the elements in this example are available at <a href="https://github.com/Jsalam/ARTD318_Digital_Interaction/tree/master/atomicDesign"> github</a></p>
+
+					<!-- ATOMS -->
+					<h2 id="atoms">Atoms - Buttons</h2>
+					<p> The fundamental atomic elements of this example are interactive rectangles and circles. Some of these elements react to the mouse proximity and change color whenever the mouse is on top of them.</p>
+
+					<p> <a href="https://material.io/guidelines/components/buttons.html#">Button</a> is the material design reference for these atoms</p>
+
+					<!-- Rectangle -->
+					<h3 id="rectangle">Raised Button</h3>
+					<div id="rectButton"></div>
+
+					<!-- Circle -->
+					<h3 id="circle">Circlular Button</h3>
+					<div id="circularButton"></div>
+
+					<!-- drawer button -->
+					<h3 id="drawer">Drawer Button</h3>
+					<div id="drawerButton"></div>
+
+					<!-- magnifiying glass -->
+					<h3 id="mGlass">Search</h3>
+					<div id="magnifyinGlass"></div>
+
+					<!-- Flat button -->
+					<h3 id="title">Title</h3>
+					<div id="titleInstance"></div><br>
+
+					<!-- Spacers -->
+					<h2 id="spacers">Atom - Spacers and bars</h2>
+					<p> <a href="https://material.io/guidelines/layout/metrics-keylines.html#">Metrics and keylines</a> and <a href="https://material.io/guidelines/layout/structure.html#structure-system-bars">layout - structure</a> are the material design references for these atoms</p>
+					<div id="contentSpacer"></div>
+
+					<h3 id="status">Status Bar</h3>
+					<div id="statusBar"></div>
+
+					<h3 id="android">Andriod Navigation Bar</h3>
+					<div id="androidBar"></div> <br>
+
+					<!-- MOLECULES -->
+					<h2 id="molecules">Molecules</h2>
+					<p>Molecules are functional structures composed by atoms creating a visual system that reseambles an interaction pattern.</p>
+					<p><a href="https://material.io/guidelines/components/lists.html#">List</a>, <a href="https://material.io/guidelines/components/grid-lists.html#grid-lists-usage">grid list</a>, and <a href="https://material.io/guidelines/layout/metrics-keylines.html#">metrics and keylines</a> are the material design references for these molecules.</p>
+
+					<!-- Item list -->
+					<h3 id="itemList">Lists</h3>
+					<div id="buttonList"></div>
+
+					<!-- Grid List -->
+					<h3 id="gridList">Grid lists</h3>
+					<div id="c6"></div>
+
+					<!-- Tool Bar -->
+					<h3 id="tbar">Tool Bar</h3>
+					<div id="toolBar"></div> <br>
+
+					<!-- ORGANISMS -->
+					<h2 id="organisms">Organisms</h2>
+					<p> Organisms consist of atoms and molecules. The material design reference for these organisms is <a href="https://material.io/guidelines/layout/metrics-keylines.html#">metrics and keylines</a>. </p>
+
+					<!-- Cell Phone -->
+					<h3 id="cellPhone1">Inbox Phone Screen </h3>
+					<div id="phoneExampleInbox"></div>
+
+					<!-- Cell Phone -->
+					<h3 id="cellPhone2">Files Phone Screen </h3>
+					<div id="phoneExampleFiles"></div>
+
+					<!-- Cell Phone -->
+					<h3 id="cellPhone3">Directory Screen </h3>
+					<div id="phoneExampleDirectory"></div>
+
+				</article>
+			</main>
+		</div>
+	</body>
+	</html>

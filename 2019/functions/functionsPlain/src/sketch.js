@@ -1,7 +1,7 @@
 
 
 function setup(){
-	createCanvas(400,400);
+	createCanvas(400,500);
 
 }
 
@@ -13,12 +13,11 @@ function draw(){
 }
 
 function menu(){
-
 	drawRectangle(40,10);
 	drawRectangle(40,100);
 	drawRectangle(40,190);
 	drawRectangle(40,280);
-
+	drawRectangle(40,370);
 }
 
 
