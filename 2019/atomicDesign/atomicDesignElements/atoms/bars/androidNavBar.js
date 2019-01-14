@@ -1,5 +1,5 @@
 /*
-pd : height in dp iunits
+pd : height in dp units
 p5js: p5js instance
 */
 function androidBar (){
