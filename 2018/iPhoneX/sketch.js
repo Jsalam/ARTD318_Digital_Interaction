@@ -23,5 +23,3 @@ draw = function() {
  text(mouseX + " , " + mouseY, mouseX, mouseY);
 
 };
-
-

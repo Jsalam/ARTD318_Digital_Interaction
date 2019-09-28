@@ -29,14 +29,14 @@ var gridModule;
 		// Initiate GUI
 
 		for (var i=0; i< myShapes.length; i++){
-			myShapes[i].makeGUI();		
+			myShapes[i].makeGUI();
 		}
 
 		for (var i=0; i< myShapes.length; i++){
 			myShapes[i].shapeButton.mouseReleased(switchShape);
-			myShapes[i].posXSlider.mouseMoved(posXSlider);	
-			myShapes[i].posYSlider.mouseMoved(posYSlider);	
-			myShapes[i].sizeSlider.mouseMoved(sizeSlider);		
+			myShapes[i].posXSlider.mouseMoved(posXSlider);
+			myShapes[i].posYSlider.mouseMoved(posYSlider);
+			myShapes[i].sizeSlider.mouseMoved(sizeSlider);
 		}
 
 		p5.rectMode(p5.CENTER);
@@ -71,7 +71,7 @@ var gridModule;
 
 		// Show buttons
 		for (var i=0; i< myShapes.length; i++){
-			myShapes[i].show();		
+			myShapes[i].show();
 		}
 
 		// Detect clicks
@@ -135,7 +135,7 @@ var gridModule;
 				myShapes[i].posYSlider.show();
 				myShapes[i].sizeSlider.show();
 				gridModule.show();
-			}	
+			}
 		}
 		reset();
 	}
@@ -159,12 +159,12 @@ var gridModule;
 			myShapes[(event.target).id - 1].setX(+event.target.value);
 	}
 
-	var posYSlider = function(){	
+	var posYSlider = function(){
 			myShapes[(event.target).id - 1].setY(+event.target.value);
 	}
 
 	var sizeSlider = function(){
-			myShapes[(event.target).id - 1].setSize(+event.target.value);	
+			myShapes[(event.target).id - 1].setSize(+event.target.value);
 	}
 
 	var updateModule = function(){
@@ -172,6 +172,6 @@ var gridModule;
 			myShapes[i].updateModule(p5.width / gridModule.value());
 			myShapes[i].updateSizeSlider(gridModule.value());
 		}
-	}	
+	}
 }
 var myP5 = new p5(instance, 'sketchInstance');

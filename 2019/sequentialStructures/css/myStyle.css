@@ -1,0 +1,22 @@
+h1   {
+  color: pink;
+  font-family: courier;
+  font-size: 300%;
+}
+
+.center {
+  margin: auto;
+  width: 60%;
+  border: 1px solid #FFFFFF;
+  padding-left: 100px;
+  background-color: #f7f7f7;
+}
+
+
+.center.bc-alphapipe{
+    color: pink;
+    font-family: bc-alphapipe, sans-serif;
+    font-style: normal;
+    font-size: 300%;
+    font-weight: 200
+  }

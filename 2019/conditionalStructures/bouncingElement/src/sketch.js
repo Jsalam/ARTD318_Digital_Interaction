@@ -1,4 +1,5 @@
-var myValue ;
+var myValueX ;
+var myValueY ;
 
 // behaviours
 var down;
@@ -6,33 +7,35 @@ var down;
 // Only once
 function setup(){
 	createCanvas(400,400);
-	myValue = 300;
+	myValueY = 300;
+	myValueX = 10;
 	down = false;
 }
 
 //loop
 function draw(){
-		background(200);
+		background(200,50);
 
 	// top boundary
-	if (myValue < 0){
+	if (myValueY < 0){
 		down = true;
+		myValueX += 4;
 	}
 
     // down boundary
-	if (myValue > height){
+	if (myValueY > height){
 		down = false;
+		myValueX += 4;
 	}
 
 	// go down
 	if (down == true){
 
-		myValue = myValue + 4;
+		myValueY = myValueY + 4;
 	} else {
-
-		myValue = myValue - 4;
+	// go up
+		myValueY = myValueY - 4;
 	}
 
-	console.log (down);
-	rect(width/2, myValue, 20, 20);
+	rect(myValueX, myValueY, 20, 20);
 }

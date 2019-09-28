@@ -1,4 +1,4 @@
-function iPhoneX () { 
+function iPhoneX () {
 
 	this.screenHeight,
 	this.screenHeight,
@@ -106,5 +106,3 @@ function iPhoneX () {
 		text(this.screenWidth +","+ this.screenHeight,  this.posX + 25 + this.screenWidth, this.posY + 24 + this.screenHeight);
 	}
 }
-
-

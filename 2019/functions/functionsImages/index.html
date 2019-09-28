@@ -1,11 +1,48 @@
 <!DOCTYPE html>
 <html>
   <head>
+
     <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
-    <style> body {padding: 0; margin: 0;} </style>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- Libraries and code -->
     <script src="libs/p5.js"></script>
     <script src="src/sketch.js"></script>
+
   </head>
+
   <body>
+
+    <div class="container-fluid" data-spy="affix_top" >
+      <h3>Title of my project </h3>
+      <h5>Made for ARTD318, Digital Interaction, UIUC</h5>
+      <p>Spring 2019</p>
+      <hr>
+    </div>
+
+    <!-- First Container-->
+    <div class="container-fluid">
+      <!-- Row-->
+      <div class="row">
+          <!-- Left Column -->
+         <div class="col-sm-2">
+          Text on left column
+         </div>
+         <!-- Middle Column -->
+        <div class="col-sm-7">
+          <p>Sed lectus sapien, porttitor quis mollis quis, convallis sed ligula. Quisque rhoncus odio sit amet libero tincidunt volutpat. Integer sollicitudin purus non nulla hendrerit posuere. Nam et velit commodo, vulputate dui rutrum, tempus mi. Ut egestas egestas nunc, nec maximus ipsum tincidunt at. Aenean aliquam venenatis nunc nec ullamcorper. Nullam accumsan risus vitae tortor condimentum, sed malesuada leo condimentum.</p>
+          <!-- This div carries your JavaScript code -->
+          <div id="sketch_Location"></div>
+        </div>
+        <!-- Right Column -->
+        <div class="col-sm-3">
+          Text on right column
+        </div>
+      </div>
+    </div>
   </body>
 </html>

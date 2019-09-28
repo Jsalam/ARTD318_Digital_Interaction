@@ -16,7 +16,7 @@ function myShape2(p5, kind, posX, posY, width, seq){
 	// Adaptive
 	this.uPosX ;
 	this.uPosY;
-	this.uHalfW; 
+	this.uHalfW;
 
 
 	this.makeGUI = function(){
@@ -33,6 +33,8 @@ function myShape2(p5, kind, posX, posY, width, seq){
 		myGUIs.push(this.posXSlider);
 		myGUIs.push(this.posYSlider);
 		myGUIs.push(this.sizeSlider);
+		myGUIs.push(p5.createP(''));
+
 		return(myGUIs);
 	}
 
@@ -60,7 +62,7 @@ function myShape2(p5, kind, posX, posY, width, seq){
 
 		 	// show rectangle
 		 	p5.rect(this.uPosX, this.uPosY, this.width * this.module, this.width * this.module);
-			
+
 		}else if (this.kind == 'ellipse'){
 
 		 	// show ellipse
@@ -73,7 +75,7 @@ function myShape2(p5, kind, posX, posY, width, seq){
 		p5.noStroke();
 		if (this.editing){
 			p5.fill(150,0,0);
-			p5.text(this.seq + '   x:' + p5.nf(this.uPosX,2,1) +',y:' + p5.nf(this.uPosY,2,1) + ',z:'+ p5.nf(this.width,2,1), this.uPosX, this.uPosY);
+			p5.text('shape: ' +this.seq + ', size:'+ p5.nf(this.width,2,1), this.uPosX, this.uPosY);
 		} else{
 			p5.fill(50);
 			p5.text(this.seq, this.uPosX, this.uPosY);
@@ -103,16 +105,16 @@ function myShape2(p5, kind, posX, posY, width, seq){
 						//p5.ellipse(p5.mouseX, p5.mouseY, 10, 10);
 						if (p5.mouseIsPressed){
 							this.wasClicked = true;
-						}				
+						}
 					}
-					
+
 				}else if (this.kind == 'ellipse'){
 
 					// evaluate proximity
 					if (p5.dist(p5.mouseX, p5.mouseY, this.uPosX, this.uPosY) < this.uHalfW){
 						if (p5.mouseIsPressed){
 							this.wasClicked = true;
-						}				
+						}
 					}
 				}
 			}
@@ -142,7 +144,7 @@ function myShape2(p5, kind, posX, posY, width, seq){
 			this.width = valS;
 	}
 
-	// This changes the X position of the shape 
+	// This changes the X position of the shape
 	this.setX = function(valX){
 		if (this.editing)
 			this.posX = valX;
@@ -157,7 +159,7 @@ function myShape2(p5, kind, posX, posY, width, seq){
 	// This enables or disables the editing mode
 	this.switchEditing = function(){
 		this.editing = !this.editing;
-		
+
 	}
 
 	this.updateModule = function(val){

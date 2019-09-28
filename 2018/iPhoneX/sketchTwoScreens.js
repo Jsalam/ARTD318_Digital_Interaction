@@ -36,9 +36,3 @@ draw = function() {
 
 
 };
-
-
-
-
-
-
